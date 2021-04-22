@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:foodies_app_flutter/models/category.dart';
 import 'package:foodies_app_flutter/models/foods.dart';
+import 'package:foodies_app_flutter/ui/pages/detail_page.dart';
 import 'package:foodies_app_flutter/ui/widgets/category_widgets.dart';
 import 'package:foodies_app_flutter/ui/widgets/food_widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -157,6 +158,14 @@ class _MainPageState extends State<MainPage> {
                           ),
                           child: FoodWidget(
                             foods: mockFoods[index],
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => DetailPage(
+                                            foods: mockFoods[index],
+                                          )));
+                            },
                           ),
                         );
                       },
